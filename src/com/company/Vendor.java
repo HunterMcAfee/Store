@@ -14,14 +14,15 @@ public class Vendor {
 
     public void getProducts() {
         for (Product product: this.products) {
-            System.out.println(product.toString());
+            if (product.getAvailability() == true)
+                System.out.println(product.toString());
         }
     }
 
     public void addProduct(Product product) {
         this.products.add(product);
     }
-    
+
     public String getName() {
         return name;
     }

@@ -4,19 +4,28 @@ import java.util.ArrayList;
 
 public class Cart {
 
-    ArrayList<Product> list = new ArrayList<Product>();
+    private ArrayList<Product> list = new ArrayList<Product>();
+
+    public Cart() {}
 
     public void viewCart() {
-        for (Product pro : list)
+        for (Product pro : this.list)
             System.out.println(pro.toString());
     }
 
     public void addItem(Product pro) {
-        list.add(pro);
+        if (pro.getQuantity() > 0)
+            list.add(pro);
+        else
+            System.out.println("Item is out of stock.");
     }
 
     public void removeItem(Product pro) {
         list.remove(pro);
+    }
+
+    public ArrayList<Product> getList() {
+        return list;
     }
 
 
