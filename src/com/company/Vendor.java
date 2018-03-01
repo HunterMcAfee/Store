@@ -4,17 +4,24 @@ import java.util.ArrayList;
 
 public class Vendor {
     private String name;
-    private ArrayList<Product> availableProducts;
-    private ArrayList<Product> unavailableProducts;
-    
+    private ArrayList<Product> products = new ArrayList<Product>();
+
     private Vendor() {}
 
-    public Vendor(String name, ArrayList<Product> availableProducts, ArrayList<Product> unavailableProducts) {
+    public Vendor(String name) {
         this.name = name;
-        this.availableProducts = availableProducts;
-        this.unavailableProducts = unavailableProducts;
     }
 
+    public void getProducts() {
+        for (Product product: this.products) {
+            System.out.println(product.toString());
+        }
+    }
+
+    public void addProduct(Product product) {
+        this.products.add(product);
+    }
+    
     public String getName() {
         return name;
     }
@@ -23,19 +30,4 @@ public class Vendor {
         this.name = name;
     }
 
-    public ArrayList<Product> getAvailableProducts() {
-        return availableProducts;
-    }
-
-    public void setAvailableProducts(ArrayList<Product> availableProducts) {
-        this.availableProducts = availableProducts;
-    }
-
-    public ArrayList<Product> getUnavailableProducts() {
-        return unavailableProducts;
-    }
-
-    public void setUnavailableProducts(ArrayList<Product> unavailableProducts) {
-        this.unavailableProducts = unavailableProducts;
-    }
 }
